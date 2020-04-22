@@ -1,10 +1,27 @@
 import React from 'react'
 
 const Form = props => {
-    const {formValues, changeHandler} = props
+    const {
+        formValues,
+        changeHandler, 
+        checkBoxHandler,
+        submitHandler,
+        disabled,
+        formErrors,
+        } = props
     return (
         <form className='form'>
             <label>
+                <div className='errors'>
+                    {formErrors.name}
+                    <br />
+                    {formErrors.email}
+                    <br />
+                    {formErrors.password}
+                    <br />
+                    {formErrors.termsOfService}
+                    <br />
+                </div>
                 Name: <input
                     name='name'
                     value={formValues.name}
@@ -28,11 +45,15 @@ const Form = props => {
                 <br/>
                 Terms of Service <input
                     name='termsOfService'
-                    value={formValues.termsOfService}
+                    checked={formValues.termsOfService}
                     type='checkbox'
-                    onChange={changeHandler}
+                    onChange={checkBoxHandler}
                 />
                 <br/>
+                Submit: <button
+                    disabled={disabled} 
+                    onClick={submitHandler}
+                >Submit!</button>
             </label>
         </form>
     )
