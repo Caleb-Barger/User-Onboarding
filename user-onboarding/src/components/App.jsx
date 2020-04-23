@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css';
 import Form from './Form'
+import Users from './Users'
 import * as yup from 'yup'
 import axios from 'axios'
 
@@ -42,8 +43,9 @@ const formSchema = yup.object().shape({
     .min(5, 'password must be at least 5 characters long')
     .required('password is required'),
   termsOfService: yup
-    .bool()
+    .boolean()
     .required('you must accept the terms and conditions')
+    .oneOf([true], 'the tems must be accepted')
 })
 
 function App() {
@@ -129,17 +131,10 @@ function App() {
         submitHandler={submitHandler}
         disabled={disabled}
         formErrors={formErrors}
-        />
-      <h2>Users In system...</h2>
-      {users.map(user => {
-        return (
-        <div>
-          <h3>Name: {user.name}</h3>
-          <h3>Email: {user.email}</h3>
-          <h3>Unique ID: {user.id}</h3>
-        </div>
-        )
-      })}
+      />
+      <Users
+        users={users}
+      />
     </div>
   )
 }

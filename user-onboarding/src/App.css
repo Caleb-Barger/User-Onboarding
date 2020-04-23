@@ -1,14 +1,6 @@
 .App {
   font-size: 62.5%;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.form {
-  margin: 10px;
-  font-size: 1.5rem;
-  width: 33%;
-  border: 2px solid black;
-  box-shadow: 0 8px 6px -6px black;
-  display: flex;
-  flex-flow: column wrap;
-}
