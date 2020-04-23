@@ -45,6 +45,7 @@ const Form = props => {
                             {formErrors.email}
                             {formErrors.password}
                             {formErrors.termsOfService}
+                            {/* {formErrors[0]} */}
                         </Typography>
                         <Typography>
                         Name: <input
@@ -82,6 +83,7 @@ const Form = props => {
                             <Button
                                 disabled={disabled} 
                                 onClick={submitHandler}
+                                id="submit-btn"
                             >Submit!</Button>
                         </CardActions>         
                     </label>

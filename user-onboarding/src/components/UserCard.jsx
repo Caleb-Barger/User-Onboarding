@@ -17,22 +17,24 @@ const useStyles = makeStyles({
 })
 
 const UserCard = props => {
-    const {user} = props
+    const {user, key} = props
     const classes = useStyles()
     return (
-        <Card className={classes.root}>
-            <CardContent>
-                <Typography>
-                    Name: {user.name}
-                </Typography>
-                <Typography>
-                    Email: {user.email}
-                </Typography>
-                <Typography>
-                    Unique ID: {user.id}
-                </Typography>
-            </CardContent>
-        </Card>
+        <div className='user-card'>
+            <Card className={classes.root}>
+                <CardContent>
+                    <Typography>
+                        Name: {user.name}
+                    </Typography>
+                    <Typography>
+                        Email: {user.email}
+                    </Typography>
+                    <Typography>
+                        Unique ID: {user.id}
+                    </Typography>
+                </CardContent>
+            </Card>
+        </div>
         
     )
 }
